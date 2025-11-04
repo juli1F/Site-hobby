@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ariana Grande - Official Website</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-image: linear-gradient(rgba(248, 230, 241, 0.75), rgba(212, 180, 229, 0.85)),
+                        url('https://i.pinimg.com/1200x/2e/4f/79/2e4f793091e7626b169aa46d64bc7fdb.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #2a1e27;
+      min-height: 100vh;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://i.pinimg.com/1200x/2e/4f/79/2e4f793091e7626b169aa46d64bc7fdb.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+    }
+
+    .hero-title {
+      font-size: 5rem;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: white;
+      color: black;
+    }
+
+    .btn-primary:hover {
+      background: rgba(255,255,255,0.9);
+      transform: translateY(-2px);
+    }
+
+    /* ===== MENU FIXO ROSA ===== */
+    .menu-rosa {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      width: fit-content;
+      border-radius: 30px;
+    }
+
+    .menu-rosa ul {
+      display: flex;
+      gap: 14px;
+      list-style: none;
+      margin: 0;
+      padding: 4px 14px;
+      background: linear-gradient(90deg, #ff77ff, #b76bff, #ff77ff);
+      background-size: 200% 200%;
+      animation: gradientMove 6s ease-in-out infinite;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      backdrop-filter: blur(8px);
+      opacity: 0.92;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .menu-rosa a {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 10px;
+      transition: all 0.25s ease;
+    }
+
+    .menu-rosa a:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+    .menu-rosa a.ativo { background: rgba(255,255,255,0.25); font-weight: 600; }
+
+    @media (max-width: 600px){
+      .menu-rosa ul { gap:6px; padding:4px 8px; }
+      .menu-rosa a { font-size:12px; padding:4px 8px; }
+    }
+
+
+    /* ===== SECTIONS ===== */
+    section { padding: 60px 20px; text-align: center; }
+    h1, h2 { font-family: "Great Vibes", cursive; color: #B34D4D; font-size: 36px; }
+
+    .album-title {
+     font-size: 1.5rem;
+     font-weight: bold;
+     margin-bottom: 0.5rem;
+     color: #B34D4D; /* mesma cor do colab e músicas preferidas */
+    }
+
+    /* ===== ALBUMS ===== */
+    .albums-section { padding: 5rem 1rem; }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .section-title { font-size: 2.5rem; font-weight: bold; color: #111827; margin-bottom: 3rem; }
+    .albums-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .album-card { border-radius: 0; overflow: hidden; cursor: pointer; transition: transform 0.3s; }
+    .album-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+    .album-image img { width: 100%; height: 18rem; object-fit: cover; transition: transform 0.7s; display: block; }
+    .album-card:hover img { transform: scale(1.05); }
+
+    .album-info { padding: 1.5rem; text-align: center; }
+    .album-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem; }
+    .album-description { font-size: 0.9rem; color: #222; margin-bottom: 1rem; }
+    .btn-play { display: inline-block; padding: 0.6rem 1.2rem; background: #1DB954; color: white; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+    .btn-play:hover { background: #1ed760; transform: scale(1.05); }
+
+    /* ===== MÚSICAS E COLAB ===== */
+    .grid { display:flex; justify-content:center; flex-wrap:wrap; gap:20px; }
+    .card { background:white; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.2); width:280px; padding:15px; text-align:center; transition: transform 0.3s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width:100%; height:170px; border-radius:10px; object-fit:cover; margin-bottom:10px; }
+    .card h3 { color:#B34D4D; margin-bottom:8px; font-size:16px; }
+    .card p { color:#555; font-size:14px; margin-bottom:10px; }
+    .card a { display:inline-block; text-decoration:none; background-color:#FF7F50; color:white; padding:8px 15px; border-radius:8px; font-weight:bold; transition:all 0.3s ease; }
+    .card a:hover { background-color:#FF9966; transform:scale(1.05); }
+
+    /* ===== HOBBY ===== */
+    .hobby-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .hobby-box {
+      max-width: 700px;
+      background: linear-gradient(145deg, #fce6f1, #f398ae);
+      padding: 2rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      font-size: 1rem;
+      color: #402b3a;
+      line-height: 1.6;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hobby-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    /* ===== BACK TO TOP ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #ff77ff;
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      z-index: 999;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      background: #ff4da6;
+    }
+
+    footer { background:#111827; color:white; padding:2rem; text-align:center; font-size:0.9rem; }
+  </style>
+</head>
+<body>
+
+  <!-- MENU FIXO -->
+  <nav class="menu-rosa">
+    <ul>
+      <li><a href="#inicio" class="ativo">Início</a></li>
+      <li><a href="#albuns">Álbuns</a></li>
+      <li><a href="#musicas-preferidas">Músicas Preferidas</a></li>
+      <li><a href="#de-cada-album">De Cada Album</a></li>
+      <li><a href="#colab">Colab</a></li>
+      <li><a href="#hobby">Hobby</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Ariana Grande</h1>
+      <p class="hero-subtitle">Cantora • Compositora • Atriz</p>
+      <div class="hero-buttons">
+        <a href="https://open.spotify.com/artist/66CXWjxzNUsdJxJ2JdwvnR" target="_blank" class="btn btn-primary">Ouvir Agora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALBUNS -->
+  <section id="albuns" class="albums-section">
+    <div class="container">
+      <h2 class="section-title">Álbuns</h2>
+      <div class="albums-grid">
+        <div class="albums-grid">
+
+        <div class="album-card your-truly">
+          <div class="album-image">
+            <img src="https://i.pinimg.com/1200x/91/b9/ac/91b9acc6a25a4dcd22f6f79a2e93c620.jpg" alt="Yours Truly">
+          </div>
+          <div class="album-info">
+            <h3 class="album-title">Yours Truly</h3>
+            <p class="album-description">Estreia suave e romântica.</p>
+            <a href="https://open.spotify.com/search/YOUR%20TRULY" target="_blank" class="btn-play">Reproduzir</a>
+          </div>
+        </div>
+
+        <div class="album-card my-everything">
+          <div class="album-image">
+            <img src="https://i.pinimg.com/1200x/06/49/92/064992320a0f4b708c53444a48cd9d32.jpg" alt="My Everything">
+          </div>
+          <div class="album-info">
+            <h3 class="album-title">My Everything</h3>
+            <p class="album-description">Canções sobre amor e superação.</p>
+            <a href="https://open.spotify.com/intl-pt/album/6EVYTRG1drKdO8OnIQBeEj" target="_blank" class="btn-play">Reproduzir</a>
+          </div>
+        </div>
+
+        <div class="album-card dangerous-woman">
+          <div class="album-image">
+            <img src="https://i.pinimg.com/736x/f4/c9/05/f4c905282a663a9324970ab0d61e069f.jpg" alt="Dangerous Woman">
+          </div>
+          <div class="album-info">
+            <h3 class="album-title">Dangerous Woman</h3>
+            <p class="album-description">O poder feminino em destaque.</p>
+            <a href="https://open.spotify.com/album/3OZgEywV4krCZ814pTJWr7" target="_blank" class="btn-play">Reproduzir</a>
+          </div>
+        </div>
+
+        <div class="album-card sweetener">
+          <div class="album-image">
+            <img src="https://i.pinimg.com/736x/23/4b/ab/234bab483206769197541d89313b49e8.jpg" alt="Sweetener">
+          </div>
+          <div class="album-info">
+            <h3 class="album-title">Sweetener</h3>
+            <p class="album-description">Um álbum doce e esperançoso.</p>
+            <a href="https://open.spotify.com/album/3tx8gQqWbGwqIGZHqDNrGe" target="_blank" class="btn-play">Reproduzir</a>
+          </div>
+        </div>
+
+        <div class="album-card thank-u-next">
+          <div class="album-image">
+            <img src="https://i.pinimg.com/736x/52/00/55/520055ef71abcdbc96d9adc3ee68d451.jpg" alt="Thank U, Next">
+          </div>
+          <div class="album-info">
+            <h3 class="album-title">Thank U, Next</h3>
+            <p class="album-description">Amor-próprio e amadurecimento.</p>
+            <a href="https://open.spotify.com/album/2fYhqwDWXjbpjaIJPEfKFw" target="_blank" class="btn-play">Reproduzir</a>
+          </div>
+        </div>
+
+        <div class="album-card positions">
+          <div class="album-image">
+            <img src="https://i.pinimg.com/736x/bd/0f/e5/bd0fe5996aff441f143fe23a295ea886.jpg" alt="Positions">
+          </div>
+          <div class="album-info">
+            <h3 class="album-title">Positions</h3>
+            <p class="album-description">Explorando novas fases do amor.</p>
+            <a href="https://open.spotify.com/album/3euz4vS7ezKGnNSwgyvKcd" target="_blank" class="btn-play">Reproduzir</a>
+          </div>
+        </div>
+
+        <div class="album-card eternal-sunshine">
+          <div class="album-image">
+            <img src="https://i.pinimg.com/736x/f5/8d/e5/f58de58bc5e660cc1ee1826351b6b995.jpg" alt="Eternal Sunshine">
+          </div>
+          <div class="album-info">
+            <h3 class="album-title">Eternal Sunshine</h3>
+            <p class="album-description">Reflexões e esperança.</p>
+            <a href="https://open.spotify.com/search/eternal%20sunshine" target="_blank" class="btn-play">Reproduzir</a>
+          </div>
+        </div>
+
+        <div class="album-card deluxe">
+          <div class="album-image">
+            <img src="https://i.pinimg.com/736x/35/ff/f1/35fff18621f4b22e10fe57c84a6f147e.jpg" alt="Eternal Sunshine Deluxe">
+          </div>
+          <div class="album-info">
+            <h3 class="album-title">Eternal Sunshine (Deluxe)</h3>
+            <p class="album-description">Versão expandida do álbum.</p>
+            <a href="https://open.spotify.com/album/6cbwstHlsAIIWurIIXXBPd" target="_blank" class="btn-play">Reproduzir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÚSICAS PREFERIDAS -->
+  <section id="musicas-preferidas">
+    <h2>Músicas preferidas</h2>
+    <p>Músicas que me impressionaram de primeira, com seu ritmo e voz incrível dela.
+        Tem muitas mais músicas que gosto mas o site ficaria muito grande, além de serem minhas preferidas mesmo são famosas. 
+    </p>
+  </section>
+
+  <!-- DE CADA ÁLBUM -->
+  <section id="de-cada-album">
+    <h2>De cada album</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://i.pinimg.com/1200x/d4/95/6e/d4956e2368d3ad70122ee73bb22ea3b6.jpg" alt="Your truly- Baby I">   
+        <h3>Your truly- Baby I</h3>
+        <a href="https://open.spotify.com/intl-pt/track/6NmCCgnQcxKHPOAKgd9Nth" target="_blank">Ver a Música</a>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/a5/8e/99/a58e99999f0cfc8b189fb58d55621eda.jpg" alt="My Everything- One Last Time">
+        <h3>My Everything- One Last Time</h3>
+        <a href="https://open.spotify.com/intl-pt/track/7xoUc6faLbCqZO6fQEYprd" target="_blank">Ver a Música</a>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/1200x/12/32/aa/1232aacbaebb11a30ec1d46a140f42bb.jpg" alt="Dangerous Woman- Into you">
+        <h3>Dangerous Woman- Into you</h3>
+        <a href="https://open.spotify.com/intl-pt/track/76FZM38RC8XaAjJ77CVTNe" target="_blank">Ver a Música</a>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/fd/08/30/fd08304360f1d61dcda5e3c92626c537.jpg" alt="Sweetener- Breathin">
+        <h3>Sweetener- Breathin</h3>
+        <a href="https://open.spotify.com/intl-pt/track/4OafepJy2teCjYJbvFE60J" target="_blank">Ver a Música</a>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/1200x/22/10/75/221075cf2cbd90c2b10537b2daacfe51.jpg" alt="Thank u, next- Thank u, next">
+        <h3>Thank u, next- Thank u, next</h3>
+        <a href="https://open.spotify.com/intl-pt/track/3e9HZxeyfWwjeyPAMmWSSQ" target="_blank">Ver a Música</a>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/f9/c7/ae/f9c7ae73f6c5d81da86b01e457196b42.jpg" alt="Positions- Positions">
+        <h3>Positions- Positions</h3>
+        <a href="https://open.spotify.com/intl-pt/track/3DFnLXa69NVlOjbhTbXXNn" target="_blank">Ver a Música</a>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/8c/f9/45/8cf9458fecab927e3c60d8399dd74df3.jpg" alt="Eternal Sunshine- Yes,and?">
+        <h3>Eternal Sunshine- Yes,and?</h3>
+        <a href="https://open.spotify.com/intl-pt/track/5D34wRmbFS29AjtTOP2QJe" target="_blank">Ver a Música</a>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/d5/06/22/d5062245aaa9d59de23f0f1f105f073a.jpg" alt="Eternal Sunshine Deluxe- Dandelion">
+        <h3>Eternal Sunshine Deluxe- Dandelion</h3>
+        <a href="https://open.spotify.com/intl-pt/track/6wZOZ0votPhc8qdg4UFPtH" target="_blank">Ver a Música</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLAB -->
+  <section id="colab">
+    <h2>Colab</h2>
+    <div class="grid">
+        <div class="card">
+         <img src="https://i.pinimg.com/1200x/a0/d6/8d/a0d68d9148c48858ac3d4ce2d69421e8.jpg" alt="Love Me Harder- Ariana e The Weeknd">
+         <h3>Love Me Harder- Ariana (feat.The Weeknd)</h3>
+         <a href="https://open.spotify.com/intl-pt/track/5J4ZkQpzMUFojo1CtAZYpn" target="_blank">Ver a Música</a>
+        </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/64/93/e7/6493e7058bc77dc65634e3627918a58e.jpg" alt="The way- Ariana (feat.Mac Miller)">
+        <h3>The way- Ariana (feat.Mac Miller)</h3>
+        <a href="https://open.spotify.com/intl-pt/track/1Onx2O64wzyA7ZzOsBBqBJ" target="_blank">Ver a Música</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOBBY -->
+  <section id="hobby" class="hobby-section">
+    <div class="hobby-box">
+        <h2>Hobby</h2>
+      <p>Escolhi ela porque foi umas das primeiras artista do pop que conheci e de primeira gostava das músicas dela. 
+        Tem muitas músicas que me identifico e amo ouvir, além de ser uma cantora incrível com uma voz maravilhosa.
+        Admiro muito a trajetória dela na música e como ela evoluiu ao longo dos anos.
+        Ariana também é conhecida por seu estilo único e presença de palco cativante, o que a torna uma artista completa.
+        Além disso, ela tem uma base de fãs dedicada e apaixonada, o que mostra o impacto positivo que ela teve na indústria da música.
+      </p>
+    </div>
+  </section>
+
+  <a href="#inicio" class="back-to-top">Voltar ao topo</a>
+  
+</body>
+</html>
